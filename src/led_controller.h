@@ -31,6 +31,7 @@ enum LevelBrightness
 class LedController
 {
 private:
+    gpio_num_t pin ;
     int ledNumbers = 0;
     rmt_channel_handle_t led_chan = NULL;
     rmt_encoder_handle_t led_encoder = NULL;
@@ -39,6 +40,7 @@ private:
     void flushRGB();
 
 public:
+    LedController(gpio_num_t pin);
     void setBrightness(LevelBrightness brightnessLevel);
     void init(int ledsNumber);
     void direct_lamp(bool is_right, LevelLamp level);

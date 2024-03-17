@@ -1,11 +1,11 @@
 #include "led_controller.h"
 
 #define RMT_LED_STRIP_RESOLUTION_HZ 10000000
-#define RMT_LED_STRIP GPIO_NUM_2
+#define RMT_LED_STRIP
+// #define RMT_LED_STRIP GPIO_NUM_2
 #define EXAMPLE_LED_NUMBERS 24
 
 static uint8_t led_strip_pixels[EXAMPLE_LED_NUMBERS * 3];
-
 void LedController::setPixel(int idx, int green, int red, int blue)
 {
     led_strip_pixels[idx * 3 + 0] = green;
@@ -21,6 +21,7 @@ void LedController::flushRGB()
     ESP_ERROR_CHECK(rmt_transmit(led_chan, led_encoder, led_strip_pixels, sizeof(led_strip_pixels), &tx_config));
     ESP_ERROR_CHECK(rmt_tx_wait_all_done(led_chan, portMAX_DELAY));
 }
+
 
 void LedController::setBrightness(LevelBrightness brightnessLevel)
 {
@@ -60,6 +61,11 @@ void LedController::setBrightness(LevelBrightness brightnessLevel)
     }
     flushRGB();
 }
+LedController::LedController(gpio_num_t pin)
+{
+    this->pin = pin;
+}
+
 
 void LedController::init(int ledsNumber)
 {
@@ -67,7 +73,7 @@ void LedController::init(int ledsNumber)
     led_chan = NULL;
 
     rmt_tx_channel_config_t tx_chan_config = {
-        .gpio_num = RMT_LED_STRIP,
+        .gpio_num = this -> pin,
         .clk_src = RMT_CLK_SRC_DEFAULT,
         .resolution_hz = RMT_LED_STRIP_RESOLUTION_HZ,
         .mem_block_symbols = 64,

@@ -12,7 +12,7 @@ extern "C" void app_main();
 
 void app_main()
 {
-   LedController ledController1(GPIO_NUM_3);
+   LedController ledController1(GPIO_NUM_2);
     // LedController ledController1;
     ledController1.init(24);
     // ledController1.direct_lamp(true, 3);

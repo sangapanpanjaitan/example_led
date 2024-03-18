@@ -12,9 +12,8 @@ extern "C" void app_main();
 
 void app_main()
 {
-   LedController ledController1(GPIO_NUM_2);
-    // LedController ledController1;
-    ledController1.init(24);
+    LedController ledController1;
+    ledController1.init(24, GPIO_NUM_2);
     // ledController1.direct_lamp(true, 3);
     ledController1.direct_lamp(true, Lamp1);
     vTaskDelay(2000 / portTICK_PERIOD_MS);

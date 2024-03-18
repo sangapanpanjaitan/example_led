@@ -61,15 +61,13 @@ void LedController::setBrightness(LevelBrightness brightnessLevel)
     }
     flushRGB();
 }
-LedController::LedController(gpio_num_t pin)
-{
-    this->pin = pin;
-}
 
 
-void LedController::init(int ledsNumber)
+
+void LedController::init(int ledsNumber, gpio_num_t pin)
 {
     this->ledNumbers = ledsNumber;
+    this->pin = pin;
     led_chan = NULL;
 
     rmt_tx_channel_config_t tx_chan_config = {

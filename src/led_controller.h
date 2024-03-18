@@ -40,9 +40,8 @@ private:
     void flushRGB();
 
 public:
-    LedController(gpio_num_t pin);
     void setBrightness(LevelBrightness brightnessLevel);
-    void init(int ledsNumber);
+    void init(int ledsNumber, gpio_num_t pin);
     void direct_lamp(bool is_right, LevelLamp level);
     void turnOffLamp();
 };

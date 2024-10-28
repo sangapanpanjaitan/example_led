@@ -1,6 +1,6 @@
-# ESP32 microcontroller to the Led Strip DS3231
+# ESP32 microcontroller to the Led Strip WS3231
 
-This program is designed to check the communication between an ESP32 with DS3231.
+This program is designed to check the communication between an ESP32 with WS3231.
 
 ## Installation
 Untuk menjalankan ESP32 pada Visual Studio Code (VSCode) dengan PlatformIO, Anda dapat mengikuti langkah-langkah berikut:
@@ -21,7 +21,7 @@ Setelah upload selesai, Anda dapat membuka monitor serial untuk melihat output d
 Dengan mengikuti langkah-langkah di atas, Anda dapat menjalankan program ESP32 Anda pada VSCode menggunakan PlatformIO dengan mudah. Jika Anda mengalami masalah atau membutuhkan bantuan tambahan, jangan ragu untuk bertanya!
 
 ### Usage
-- Connect the ESP32 microcontroller to the Led Strip DS3231
+- Connect the ESP32 microcontroller to the Led Strip WS3231
 - Upload the program to the ESP32 using PlatformIO.
 - Open the serial monitor to view the communication status.
 - The program will perform a single reading from the sensor and display the temperature and humidity values.
